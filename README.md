@@ -1,28 +1,92 @@
-# 🌲 Cypress, do Zero à Nuvem ☁️
+# Cypress — Do Zero à Nuvem (Testes automatizados)
 
-👋 Seja bem-vindo(a)!
+## Sistemas
 
-É muito bom tê-lo(a) aqui. Tenho certeza que você vai amar esse curso. ❤️
+Antes de começar, certifique-se de que os seguintes sistemas estejam instalados em seu computador.
 
-## O que você vai aprender?
+- [git](https://git-scm.com/) (`2.42.1` no momento da redação deste artigo)
+- [Node.js](https://nodejs.org/en/) (`v20.13.1` no momento da redação deste artigo)
+- npm (`10.8.1` no momento da redação deste artigo)
 
-- Como configurar um projeto Cypress do zero
-- Como visitar páginas locais e remotas
-- Como lidar com os elementos mais comuns encontrados em aplicações web
-- Como testar upload de arquivos
-- Como realizar as mais diversas verificações de resultados esperados
-- Como criar comandos customizados
-- Como lidar com links que abrem em outra aba do navegador
-- Como rodar testes simulando as dimensões de um dispositivo móvel
-- Como resolver os mesmos problemas de diferentes formas, conhecendo a [API do Cypress](https://docs.cypress.io/api/table-of-contents)
-- Como criar uma documentação mínima para seu projeto de testes automatizados
-- Como executar os testes em um _workflow_ de integração contínua sempre que mudanças ocorrerem no código da aplicação (ou dos testes)
-- Como integrar seu _workflow_ de integração contínua com o Cypress Cloud (o serviço de gestão de testes do Cypress na nuvem)
+Descrição breve
+----------------
 
-## Vamos começar?
+Este repositório contém os testes e exemplos do curso "Cypress, do Zero à Nuvem". O projeto usa Cypress para testes end-to-end da aplicação de exemplo localizada em `src/` e inclui exemplos de execução em modo GUI e headless, além de configurações para viewport mobile.
 
-Vá para a seção [estrutura do curso](./lessons/_course-structure_.md).
+Pré-requisitos
+--------------
+
+- Node.js (recomenda-se LTS) e `npm`
+- Git (para clonar o repositório)
+- Navegador compatível (Chrome/Chromium) — Cypress também usa Electron por padrão
+
+Instalação
+----------
+
+Clone o repositório e instale as dependências:
+
+```bash
+git clone https://github.com/wlsf82/cypress-do-zero-a-nuvem.git
+cd cypress-do-zero-a-nuvem
+npm install
+```
+
+Rodando os testes
+-----------------
+
+- Abrir a interface interativa do Cypress:
+
+```bash
+npm run cy:open
+```
+
+- Abrir a interface interativa em viewport mobile:
+
+```bash
+npm run cy:open:mobile
+```
+
+- Executar todos os testes em modo headless (CI/local):
+
+```bash
+npm run test
+```
+
+- Executar testes em modo headless com viewport mobile:
+
+```bash
+npm run test:mobile
+```
+
+Executar um spec específico (exemplo):
+
+```bash
+npx cypress run --spec "cypress/e2e/privacyPolicy.cy.js"
+```
+
+Scripts disponíveis (conforme `package.json`)
+------------------------------------------------
+
+- `npm run cy:open` — abre a UI do Cypress
+- `npm run cy:open:mobile` — abre a UI do Cypress com viewport mobile
+- `npm run test` — executa os testes em modo headless
+- `npm run test:mobile` — executa os testes em modo headless com viewport mobile
+
+Estrutura do projeto
+---------------------
+
+- `cypress/` — testes E2E, fixtures, suporte e vídeos
+- `src/` — aplicação de exemplo (páginas HTML, CSS, JS)
+- `lessons/` — material do curso e notas das aulas
+- `package.json` — scripts e dependências do projeto
+
+Dicas e observações
+--------------------
+
+- O projeto já inclui `cypress` em `devDependencies` — após `npm install` o Cypress estará disponível localmente.
+- Para gravar vídeos ou screenshots consulte as configurações em `cypress.config.js`.
+- Em CI (GitHub Actions, etc.) use `npm run test` para execução headless.
+
 
 ___
 
-Este é um curso da **Escola Talking About Testing**.
