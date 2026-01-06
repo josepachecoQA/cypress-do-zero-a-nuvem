@@ -12,5 +12,18 @@ describe('Central de Atendimento ao Cliente TAT', () => {
         cy.contains('p', 'No entanto, a aplicação é um exemplo, sem qualquer persistência de dados, e usada para fins de ensino.').should('be.visible')
         cy.contains('p', 'Talking About Testing').should('be.visible')
     })
-
+    
+    Cypress._.times(3, () => {
+      it('verifica o tempo de carregamento da página da política de privacidade', () => {
+        const start = performance.now()
+        cy.visit('./src/privacy.html')
+        cy.window().then(() => {
+          const end = performance.now()
+          const loadTime = end - start
+          expect(loadTime).to.be.lessThan(2000) // Verifica se o tempo de carregamento é menor que 2 segundos
+        })
+      })
+    })
+    
 })
+
